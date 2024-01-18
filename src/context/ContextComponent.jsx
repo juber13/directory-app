@@ -1,4 +1,4 @@
-import { Children, createContext, useContext, useState } from "react";
+import { Children, createContext, useContext, useEffect, useState } from "react";
 
 
 export const userContext = createContext({});
@@ -10,7 +10,19 @@ const ContextComponent = ({ children }) => {
   const [aadhar, setAadhar] = useState("");
   const [phone, setPhone] = useState("");
   const [age, setAge] = useState("");
-  const [inputsValues, setInputValues] = useState([]);
+  const [inputsValues, setInputValues] = useState(JSON.parse(localStorage.getItem('userInfo')) || []);
+  const [show , setShow] = useState(true);
+
+
+  const addLocalStorage = () => {
+    localStorage.setItem('userInfo', JSON.stringify(inputsValues));
+  }
+
+  useEffect(() => {
+    addLocalStorage()
+  },[inputsValues])
+  
+
 
 
   const data = {
@@ -25,7 +37,9 @@ const ContextComponent = ({ children }) => {
     setPhone,
     setAge,
     inputsValues,
-    setInputValues
+    setInputValues,
+    show,
+    setShow
   }
 
   return (
