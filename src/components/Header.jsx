@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react';
-import { userContext } from '../context/context';
-import { getUserContext } from '../context/context';
+import { userContext } from '../context/ContextComponent';
+import { getUserContext } from '../context/ContextComponent';
 
 const Header = () => {
     const data = getUserContext();

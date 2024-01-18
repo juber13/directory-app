@@ -11,12 +11,16 @@ import './App.css'
 import Content from './components/Content'
 import Header from './components/Header'
 
-import Context from './context/context'
+// import Context from './context/Context.jsx'
+// import Context from './context/context'
+// import ContextComponent from './context/context'
+
+import ContextComponent from './context/ContextComponent'
 
 function App() {
 
   return (
-    <Context>
+    <ContextComponent>
       <BrowserRouter>
       <Header/>
         <Routes>
@@ -27,7 +31,7 @@ function App() {
       
         </Routes>
       </BrowserRouter>
-    </Context>
+    </ContextComponent>
   )
 }
 
